@@ -56,7 +56,7 @@ JSON;
         $shippingInfo->address_addition = 'address_addition foo';
         $shippingInfo->tax_rate = Decimal::fromFloat(2);
         $shippingInfo->discount = Decimal::fromFloat(3);
-        $shippingInfo->discount_rate = Decimal::fromFloat(3);
+        $shippingInfo->discount_rate = Decimal::fromFloat(4);
 
         $expected = <<<JSON
 {
@@ -74,7 +74,7 @@ JSON;
     "address_addition": "address_addition foo",
     "tax_rate": 200,
     "discount": 300,
-    "discount_rate": 300
+    "discount_rate": 400
 }
 JSON;
 

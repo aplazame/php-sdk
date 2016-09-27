@@ -40,7 +40,7 @@ JSON;
             Customer::GENDER_UNKNOWN
         );
         $customer->first_name = 'description lorem ipsum';
-        $customer->last_name = Decimal::fromFloat(3);
+        $customer->last_name = 'last name';
         $customer->birthday = new DateTime('2000-12-31 23:59:59', new DateTimeZone('UTC'));
         $customer->language = 'de';
         $customer->date_joined = new DateTime('2001-12-31 23:59:59', new DateTimeZone('Europe/Berlin'));
@@ -54,7 +54,7 @@ JSON;
   "type": "n",
   "gender": 0,
   "first_name": "description lorem ipsum",
-  "last_name": 300,
+  "last_name": "last name",
   "birthday": "2000-12-31T23:59:59+0000",
   "language": "de",
   "date_joined": "2001-12-31T23:59:59+0100",
