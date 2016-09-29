@@ -62,7 +62,7 @@ class Client
      *
      * @throws ApiCommunicationException if an I/O error occurs.
      * @throws DeserializeException if response cannot be deserialized.
-     * @throws ApiServerException if an I/O error occurs.
+     * @throws ApiServerException if server was not able to respond.
      * @throws ApiClientException if request is invalid.
      */
     public function delete($path)
@@ -80,7 +80,7 @@ class Client
      *
      * @throws ApiCommunicationException if an I/O error occurs.
      * @throws DeserializeException if response cannot be deserialized.
-     * @throws ApiServerException if an I/O error occurs.
+     * @throws ApiServerException if server was not able to respond.
      * @throws ApiClientException if request is invalid.
      */
     public function get($path, array $query = array())
@@ -103,7 +103,7 @@ class Client
      *
      * @throws ApiCommunicationException if an I/O error occurs.
      * @throws DeserializeException if response cannot be deserialized.
-     * @throws ApiServerException if an I/O error occurs.
+     * @throws ApiServerException if server was not able to respond.
      * @throws ApiClientException if request is invalid.
      */
     public function patch($path, array $data)
@@ -139,7 +139,7 @@ class Client
      *
      * @throws ApiCommunicationException if an I/O error occurs.
      * @throws DeserializeException if response cannot be deserialized.
-     * @throws ApiServerException if an I/O error occurs.
+     * @throws ApiServerException if server was not able to respond.
      * @throws ApiClientException if request is invalid.
      */
     public function put($path, array $data)
@@ -156,7 +156,7 @@ class Client
      *
      * @throws ApiCommunicationException if an I/O error occurs.
      * @throws DeserializeException if response cannot be deserialized.
-     * @throws ApiServerException if an I/O error occurs.
+     * @throws ApiServerException if server was not able to respond.
      * @throws ApiClientException if request is invalid.
      */
     public function request($method, $path, array $data = null)
