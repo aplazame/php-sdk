@@ -171,7 +171,7 @@ In your view you will need to put an snippet similar to this one.
 This SDK assist you for craft a well formatted API request and decode the response back to PHP.
 
 ```php
-$apiBaseUri = 'http://api.aplazame.com';
+$apiBaseUri = 'https://api.aplazame.com';
 $environment = Aplazame\Api\Client::ENVIRONMENT_SANDBOX; // When you are ready use Aplazame\Api\Client::ENVIRONMENT_PRODUCTION
 $accessToken = 'api private key';
 
