@@ -21,14 +21,14 @@ class Customer extends AbstractModel
     /**
      * Customer ID.
      *
-     * @var string
+     * @var null|string
      */
     public $id;
 
     /**
      * The customer email.
      *
-     * @var string
+     * @var null|string
      */
     public $email;
 
@@ -39,14 +39,14 @@ class Customer extends AbstractModel
      * @see Customer::TYPE_GUEST
      * @see Customer::TYPE_NEW
      *
-     * @var string
+     * @var null|string
      */
     public $type;
 
     /**
      * Customer gender, the choices are 0: not known, 1: male, 2:female, 3: not applicable.
      *
-     * @var int
+     * @var null|int
      */
     public $gender;
 
@@ -98,18 +98,4 @@ class Customer extends AbstractModel
      * @var null|Address
      */
     public $address;
-
-    /**
-     * @param string $id
-     * @param string $email
-     * @param string $type
-     * @param int $gender
-     */
-    public function __construct($id, $email, $type, $gender)
-    {
-        $this->id = $id;
-        $this->email = $email;
-        $this->type = $type;
-        $this->gender = $gender;
-    }
 }

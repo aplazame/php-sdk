@@ -7,14 +7,14 @@ class Address extends AbstractModel
     /**
      * First name.
      *
-     * @var string
+     * @var null|string
      */
     public $first_name;
 
     /**
      * Last name.
      *
-     * @var string
+     * @var null|string
      */
     public $last_name;
 
@@ -35,7 +35,7 @@ class Address extends AbstractModel
     /**
      * Street.
      *
-     * @var string
+     * @var null|string
      */
     public $street;
 
@@ -49,48 +49,28 @@ class Address extends AbstractModel
     /**
      * City.
      *
-     * @var string
+     * @var null|string
      */
     public $city;
 
     /**
      * State.
      *
-     * @var string
+     * @var null|string
      */
     public $state;
 
     /**
      * Country code.
      *
-     * @var string
+     * @var null|string
      */
     public $country;
 
     /**
      * postcode.
      *
-     * @var string
+     * @var null|string
      */
     public $postcode;
-
-    /**
-     * @param string $first_name
-     * @param string $last_name
-     * @param string $street
-     * @param string $city
-     * @param string $state
-     * @param string $country
-     * @param string $postcode
-     */
-    public function __construct($first_name, $last_name, $street, $city, $state, $country, $postcode)
-    {
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-        $this->street = $street;
-        $this->city = $city;
-        $this->state = $state;
-        $this->country = $country;
-        $this->postcode = $postcode;
-    }
 }

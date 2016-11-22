@@ -26,25 +26,23 @@ This SDK provides a tree of objects for guide you about to craft the checkout mo
 /*
  * Merchant model
  */
-$merchant = new Aplazame\BusinessModel\Merchant(
-    "/confirm", // url that the JS client sent to confirming the order.
-    "/cancel",  // url that the customer is sent to if there is an error in the checkout.
-    "/success"  // url that the customer is sent to after confirming their order.
-);
-$merchant->checkout_url = "/checkout"; // url that the customer is sent to if the customer chooses to back to the e-commerce, by default is /.
+$merchant = new Aplazame\BusinessModel\Merchant();
+$merchant->confirmation_url = "/confirm"; // url that the JS client sent to confirming the order.
+$merchant->cancel_url = "/cancel";        // url that the customer is sent to if there is an error in the checkout.
+$merchant->success_url = "/success";      // url that the customer is sent to after confirming their order.
+$merchant->checkout_url = "/checkout";    // url that the customer is sent to if the customer chooses to back to the e-commerce, by default is /.
 
 
 /*
  * Article model
  */
-$article = new Aplazame\BusinessModel\Article(
-    "89793238462643383279",                            // The article ID.
-    "Reloj en oro blanco de 18 quilates y diamantes",  // Article name.
-    "http://shop.example.com/product.html",            // Article url.
-    "http://shop.example.com/product_image.png",       // Article image url.
-    2,                                                 // Article quantity.
-    Aplazame\BusinessModel\Decimal::fromFloat(4020.00) // Article price (tax is not included). (4,020.00 €)
-);
+$article = new Aplazame\BusinessModel\Article();
+$article->id = "89793238462643383279";                                     // The article ID.
+$article->name = "Reloj en oro blanco de 18 quilates y diamantes";         // Article name.
+$article->url = "http://shop.example.com/product.html";                    // Article url.
+$article->image_url = "http://shop.example.com/product_image.png";         // Article image url.
+$article->quantity = 2;                                                    // Article quantity.
+$article->price = Aplazame\BusinessModel\Decimal::fromFloat(4020.00);      // Article price (tax is not included). (4,020.00 €)
 $article->description = "Movimiento de cuarzo de alta precisión";          // Article description.
 $article->tax_rate = Aplazame\BusinessModel\Decimal::fromFloat(21.00);     // Article tax rate. (21.00%)
 $article->discount = Aplazame\BusinessModel\Decimal::fromFloat(5.00);      // The discount amount of the article. (5.00 €)
@@ -61,13 +59,12 @@ $articles = array( $article, ... );
 /*
  * Order model
  */
-$order = new Aplazame\BusinessModel\Order(
-    "28475648233786783165",                             // Your order ID.
-    "EUR",                                              // Currency code of the order.
-    Aplazame\BusinessModel\Decimal::fromFloat(21.00),   // Order tax rate. (21.00%)
-    Aplazame\BusinessModel\Decimal::fromFloat(4620.00), // Order total amount. (4,620.00 €)
-    $articles                                           // Articles in cart.
-);
+$order = new Aplazame\BusinessModel\Order();
+$order->id = "28475648233786783165";                                          // Your order ID.
+$order->currency = "EUR";                                                     // Currency code of the order.
+$order->tax_rate = Aplazame\BusinessModel\Decimal::fromFloat(21.00);          // Order tax rate. (21.00%)
+$order->total_amount = Aplazame\BusinessModel\Decimal::fromFloat(4620.00);    // Order total amount. (4,620.00 €)
+$order->articles = $articles;                                                 // Articles in cart.
 $order->discount = Aplazame\BusinessModel\Decimal::fromFloat(160.00);         // The discount amount of the order. (160.00 €)
 $order->discount_rate = Aplazame\BusinessModel\Decimal::fromFloat(2.00);      // The rate discount of the order. (2.00 %)
 $order->cart_discount = Aplazame\BusinessModel\Decimal::fromFloat(0.50);      // The discount amount of the cart. (0.50 €)
@@ -76,15 +73,14 @@ $order->cart_discount_rate = Aplazame\BusinessModel\Decimal::fromFloat(3.00); //
 /*
  * Customer address model
  */
-$customerAddress = new Aplazame\BusinessModel\Address(
-    "John",                 // Address first name.
-    "Coltrane",             // Address last name.
-    "Plaza del Angel nº10", // Address street.
-    "Madrid",               // Address city.
-    "Madrid",               // Address state.
-    "ES",                   // Address country code.
-    "28012"                 // Address postcode.
-);
+$customerAddress = new Aplazame\BusinessModel\Address();
+$customerAddress->first_name = "John";                              // Address first name.
+$customerAddress->last_name = "Coltrane";                           // Address last name.
+$customerAddress->street = "Plaza del Angel nº10";                  // Address street.
+$customerAddress->city = "Madrid";                                  // Address city.
+$customerAddress->state = "Madrid";                                 // Address state.
+$customerAddress->country = "ES";                                   // Address country code.
+$customerAddress->postcode = "28012";                               // Address postcode.
 $customerAddress->phone = "616123456";                              // Address phone number.
 $customerAddress->alt_phone = "+34917909930";                       // Address alternative phone.
 $customerAddress->address_addition = "Cerca de la plaza Santa Ana"; // Address addition.
@@ -92,12 +88,11 @@ $customerAddress->address_addition = "Cerca de la plaza Santa Ana"; // Address a
 /*
  * Customer model
  */
-$customer = new Aplazame\BusinessModel\Customer(
-    "1618",                                          // Customer ID.
-    "dev@aplazame.com",                              // The customer email.
-    Aplazame\BusinessModel\Customer::TYPE_EXISTING,  // Customer type. Other options are: TYPE_GUEST and TYPE_NEW.
-    Aplazame\BusinessModel\Customer::GENDER_UNKNOWN, // Customer gender. Other options are: GENDER_MALE, GENDER_FEMALE and GENDER_NOT_APPLICABLE.
-);
+$customer = new Aplazame\BusinessModel\Customer();
+$customer->id = "1618";                                                                             // Customer ID.
+$customer->email = "dev@aplazame.com";                                                              // The customer email.
+$customer->type = Aplazame\BusinessModel\Customer::TYPE_EXISTING;                                   // Customer type. Other options are: TYPE_GUEST and TYPE_NEW.
+$customer->gender = Aplazame\BusinessModel\Customer::GENDER_UNKNOWN;                                // Customer gender. Other options are: GENDER_MALE, GENDER_FEMALE and GENDER_NOT_APPLICABLE.
 $customer->first_name = "John";                                                                     // Customer first name.
 $customer->last_name = "Coltrane";                                                                  // Customer last name.
 $customer->birthday = DateTime::createFromFormat(DateTime::ISO8601, "1990-08-21T13:56:45+0000");    // Customer birthday.
@@ -110,15 +105,14 @@ $customer->address = $customerAddress;                                          
 /*
  * Billing address model
  */
-$billingBilling = new Aplazame\BusinessModel\Address(
-   "Bill",                    // Billing first name.
-   "Evans",                   // Billing last name.
-   "Calle de Las Huertas 22", // Billing street.
-   "Madrid",                  // Billing city.
-   "Madrid",                  // Billing state.
-   "ES",                      // Billing country code.
-   "28014"                    // Billing postcode.
-);
+$billingAddress = new Aplazame\BusinessModel\Address();
+$billingAddress->first_name = "Bill";                        // Billing first name.
+$billingAddress->last_name = "Evans";                        // Billing last name.
+$billingAddress->street = "Calle de Las Huertas 22";         // Billing street.
+$billingAddress->city = "Madrid";                            // Billing city.
+$billingAddress->state = "Madrid";                           // Billing state.
+$billingAddress->country = "ES";                             // Billing country code.
+$billingAddress->postcode = "28014";                         // Billing postcode.
 $billingAddress->phone = "+34914298407";                     // Billing phone number.
 $billingAddress->alt_phone = null;                           // Billing alternative phone.
 $billingAddress->address_addition =  "Cerca de la pizzería"; // Billing address addition.
@@ -127,17 +121,16 @@ $billingAddress->address_addition =  "Cerca de la pizzería"; // Billing address
 /*
  * Shipping info model
  */
-$shippingInfo = new Aplazame\BusinessModel\Address(
-   "Django",                                        // Shipping first name.
-   "Reinhard",                                      // Shipping last name.
-   "Plaza del Angel nº10",                          // Shipping street.
-   "Madrid",                                        // Shipping city.
-   "Madrid",                                        // Shipping state.
-   "ES",                                            // Shipping country code.
-   "28012",                                         // Shipping postcode.
-   "Planet Express",                                // Shipping name.
-   Aplazame\BusinessModel\Decimal::fromFloat(5.00), // Shipping price (tax is not included). (5.00 €)
-);
+$shippingInfo = new Aplazame\BusinessModel\Address();
+$shippingInfo->first_name = "Django";                                           // Shipping first name.
+$shippingInfo->last_name = "Reinhard";                                          // Shipping last name.
+$shippingInfo->street = "Plaza del Angel nº10";                                 // Shipping street.
+$shippingInfo->city = "Madrid";                                                 // Shipping city.
+$shippingInfo->state = "Madrid";                                                // Shipping state.
+$shippingInfo->country = "ES";                                                  // Shipping country code.
+$shippingInfo->postcode = "28012";                                              // Shipping postcode.
+$shippingInfo->name = "Planet Express";                                         // Shipping name.
+$shippingInfo->price = Aplazame\BusinessModel\Decimal::fromFloat(5.00);         // Shipping price (tax is not included). (5.00 €)
 $shippingInfo->phone = "616123456";                                             // Shipping phone number.
 $shippingInfo->alt_phone = "+34917909930";                                      // Shipping alternative phone.
 $shippingInfo->address_addition = "Cerca de la plaza Santa Ana";                // Shipping address addition.
@@ -149,12 +142,11 @@ $shippingInfo->discount_rate = Aplazame\BusinessModel\Decimal::fromFloat(2.00); 
 /*
  * Checkout model
  */
-$checkout = new Aplazame\BusinessModel\Checkout(
-    true,      // TOC
-    $merchant,
-    $order,
-    $customer
-);
+$checkout = new Aplazame\BusinessModel\Checkout();
+$checkout->toc = true;
+$checkout->merchant = $merchant;
+$checkout->order = $order;
+$checkout->customer = $customer;
 $checkout->billing = $billingAddress;
 $checkout->shipping = $shippingInfo;
 ```
@@ -162,7 +154,7 @@ $checkout->shipping = $shippingInfo;
 In your view you will need to put an snippet similar to this one.
 ```html
 <script>
-  aplazame.checkout( <?php echo $checkout->jsonSerialize(); ?> );
+  aplazame.checkout( <?php echo json_encode($checkout->jsonSerialize()); ?> );
 </script>
 ```
 

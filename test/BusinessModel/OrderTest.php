@@ -7,55 +7,15 @@ namespace Aplazame\BusinessModel;
  */
 class OrderTest extends AbstractModelTestCase
 {
-    public function testThrowExceptionIfArticlesCollectionIsEmpty()
-    {
-        $this->setExpectedException('InvalidArgumentException', '$articles must not to be empty');
-        new Order(
-            'id1234',
-            'EUR',
-            Decimal::fromFloat(1),
-            Decimal::fromFloat(2),
-            array()
-        );
-    }
-
-    public function testMinimalFields()
-    {
-        $order = new Order(
-            'id1234',
-            'EUR',
-            Decimal::fromFloat(1),
-            Decimal::fromFloat(2),
-            array(
-                $this->mockClassAndJsonSerialize('Aplazame\\BusinessModel\\Article', 'Article model'),
-            )
-        );
-
-        $expected = <<<JSON
-{
-  "id": "id1234",
-  "currency": "EUR",
-  "tax_rate": 100,
-  "total_amount": 200,
-  "articles": [
-    "Article model"
-  ]
-}
-JSON;
-
-        self::assertEquals(json_decode($expected, true), $order->jsonSerialize());
-    }
-
     public function testAllFields()
     {
-        $order = new Order(
-            'id1234',
-            'EUR',
-            Decimal::fromFloat(1),
-            Decimal::fromFloat(2),
-            array(
-                $this->mockClassAndJsonSerialize('Aplazame\\BusinessModel\\Article', 'Article model'),
-            )
+        $order = new Order();
+        $order->id = 'id1234';
+        $order->currency = 'EUR';
+        $order->tax_rate = Decimal::fromFloat(1);
+        $order->total_amount = Decimal::fromFloat(2);
+        $order->articles = array(
+            $this->mockClassAndJsonSerialize('Aplazame\\BusinessModel\\Article', 'Article model'),
         );
         $order->discount = Decimal::fromFloat(3);
         $order->discount_rate = Decimal::fromFloat(4);

@@ -8,22 +8,22 @@ namespace Aplazame\BusinessModel;
 class Checkout extends AbstractModel
 {
     /**
-     * @var bool
+     * @var null|bool
      */
     public $toc;
 
     /**
-     * @var Merchant
+     * @var null|Merchant
      */
     public $merchant;
 
     /**
-     * @var Order
+     * @var null|Order
      */
     public $order;
 
     /**
-     * @var Customer
+     * @var null|Customer
      */
     public $customer;
 
@@ -41,22 +41,4 @@ class Checkout extends AbstractModel
      * @var array
      */
     public $meta = array();
-
-    /**
-     * @param bool $toc
-     * @param Merchant $merchant
-     * @param Order $order
-     * @param Customer $customer
-     */
-    public function __construct(
-        $toc,
-        Merchant $merchant,
-        Order $order,
-        Customer $customer
-    ) {
-        $this->toc = $toc;
-        $this->merchant = $merchant;
-        $this->order = $order;
-        $this->customer = $customer;
-    }
 }

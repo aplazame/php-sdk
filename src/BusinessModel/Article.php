@@ -10,14 +10,14 @@ class Article extends AbstractModel
     /**
      * The article ID.
      *
-     * @var string
+     * @var null|string
      */
     public $id;
 
     /**
      * Article name.
      *
-     * @var string
+     * @var null|string
      */
     public $name;
 
@@ -31,28 +31,28 @@ class Article extends AbstractModel
     /**
      * Article url.
      *
-     * @var string
+     * @var null|string
      */
     public $url;
 
     /**
      * Article image url.
      *
-     * @var string
+     * @var null|string
      */
     public $image_url;
 
     /**
      * Article quantity.
      *
-     * @var int
+     * @var null|int
      */
     public $quantity;
 
     /**
      * Article price (tax is not included).
      *
-     * @var Decimal
+     * @var null|Decimal
      */
     public $price;
 
@@ -76,22 +76,4 @@ class Article extends AbstractModel
      * @var null|Decimal
      */
     public $discount_rate;
-
-    /**
-     * @param string $id
-     * @param string $name
-     * @param string $url
-     * @param string $image_url
-     * @param int $quantity
-     * @param Decimal $price
-     */
-    public function __construct($id, $name, $url, $image_url, $quantity, Decimal $price)
-    {
-        $this->id = $id;
-        $this->name = $name;
-        $this->url = $url;
-        $this->image_url = $image_url;
-        $this->quantity = $quantity;
-        $this->price = $price;
-    }
 }

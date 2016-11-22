@@ -10,35 +10,13 @@ use DateTimeZone;
  */
 class CustomerTest extends AbstractModelTestCase
 {
-    public function testMinimalFields()
-    {
-        $customer = new Customer(
-            'id1234',
-            'foo@example.com',
-            Customer::TYPE_NEW,
-            Customer::GENDER_UNKNOWN
-        );
-
-        $expected = <<<JSON
-{
-  "id": "id1234",
-  "email": "foo@example.com",
-  "type": "n",
-  "gender": 0
-}
-JSON;
-
-        self::assertEquals(json_decode($expected, true), $customer->jsonSerialize());
-    }
-
     public function testAllFields()
     {
-        $customer = new Customer(
-            'id1234',
-            'foo@example.com',
-            Customer::TYPE_NEW,
-            Customer::GENDER_UNKNOWN
-        );
+        $customer = new Customer();
+        $customer->id = 'id1234';
+        $customer->email = 'foo@example.com';
+        $customer->type = Customer::TYPE_NEW;
+        $customer->gender = Customer::GENDER_UNKNOWN;
         $customer->first_name = 'description lorem ipsum';
         $customer->last_name = 'last name';
         $customer->birthday = new DateTime('2000-12-31 23:59:59', new DateTimeZone('UTC'));

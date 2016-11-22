@@ -13,7 +13,7 @@ class Decimal extends AbstractModel
     }
 
     /**
-     * @var int
+     * @var null|int
      */
     public $value;
 

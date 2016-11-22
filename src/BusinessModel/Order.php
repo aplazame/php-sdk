@@ -2,8 +2,6 @@
 
 namespace Aplazame\BusinessModel;
 
-use InvalidArgumentException;
-
 /**
  * Order.
  */
@@ -12,7 +10,7 @@ class Order extends AbstractModel
     /**
      * Your order ID.
      *
-     * @var string
+     * @var null|string
      */
     public $id;
 
@@ -47,21 +45,21 @@ class Order extends AbstractModel
     /**
      * Currency code of the order.
      *
-     * @var string
+     * @var null|string
      */
     public $currency;
 
     /**
      * Order tax rate.
      *
-     * @var Decimal
+     * @var null|Decimal
      */
     public $tax_rate;
 
     /**
      * Order total amount.
      *
-     * @var Decimal
+     * @var null|Decimal
      */
     public $total_amount;
 
@@ -70,25 +68,5 @@ class Order extends AbstractModel
      *
      * @var Article[]
      */
-    public $articles;
-
-    /**
-     * @param string $id
-     * @param string $currency
-     * @param Decimal $tax_rate
-     * @param Decimal $total_amount
-     * @param Article[] $articles
-     */
-    public function __construct($id, $currency, Decimal $tax_rate, Decimal $total_amount, array $articles)
-    {
-        if (empty($articles)) {
-            throw new InvalidArgumentException('$articles must not to be empty');
-        }
-
-        $this->id = $id;
-        $this->currency = $currency;
-        $this->tax_rate = $tax_rate;
-        $this->total_amount = $total_amount;
-        $this->articles = $articles;
-    }
+    public $articles = array();
 }
