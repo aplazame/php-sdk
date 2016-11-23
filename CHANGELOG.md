@@ -7,14 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - [Api] Add `getHttpStatusCode` to `ApiClientException` and `ApiServerException`. This method returns the response HTTP status code.
+- [Serializer] New component focused only in assist the conversion of PHP types to JSON compatible types.
 
 ### Changed
-- [BusinessModel] Remove constructors
+- [BusinessModel] This component has been replaced by [Serializer]
 - [Api] Change in `ApiClientException` and `ApiServerException` constructor signature.
 
 ### Deprecated
 
 ### Removed
+- [BusinessModel] This component has been replaced by [Serializer]
 
 ### Fixed
 

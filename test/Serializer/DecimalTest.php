@@ -1,11 +1,13 @@
 <?php
 
-namespace Aplazame\BusinessModel;
+namespace Aplazame\Serializer;
+
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
- * @covers Aplazame\BusinessModel\Decimal
+ * @covers Aplazame\Serializer\Decimal
  */
-class DecimalTest extends AbstractModelTestCase
+class DecimalTest extends TestCase
 {
     public function testJsonSerialize()
     {
