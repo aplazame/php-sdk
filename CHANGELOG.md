@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 ### Fixed
+- [Api] path is appended twice to API base URI.
 
 ### Security
 

@@ -161,7 +161,7 @@ class Client
      */
     public function request($method, $path, array $data = null)
     {
-        $uri = $this->apiBaseUri . '/' . ltrim($path, '/') . $path;
+        $uri = $this->apiBaseUri . '/' . ltrim($path, '/');
 
         $request = new ApiRequest($this->useSandbox, $this->accessToken, $method, $uri, $data);
         try {

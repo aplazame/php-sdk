@@ -14,7 +14,16 @@ class ClientTest extends TestCase
     {
         $httpClient = $this->getMock('Aplazame\\Http\\ClientInterface');
         $httpClient->method('send')
-            ->willReturn(new Response(200, '{"foo": "value"}'))
+            ->willReturnCallback(function (ApiRequest $apiRequest) {
+                ClientTest::assertEquals('GET', $apiRequest->getMethod(), 'getMethod not match');
+                ClientTest::assertEquals('http://api.example.com/path', $apiRequest->getUri(), 'getUri not match');
+
+                $headers = $apiRequest->getHeaders();
+                ClientTest::assertEquals('application/vnd.aplazame.sandbox.v1+json', $headers['Accept'][0], 'Accept header not match');
+                ClientTest::assertEquals('Bearer fooAccessToken', $headers['Authorization'][0], 'Authorization header not match');
+
+                return new Response(200, '{"foo": "value"}');
+            })
         ;
 
         $client = new Client(
@@ -24,7 +33,7 @@ class ClientTest extends TestCase
             $httpClient
         );
 
-        $response = $client->request('get', 'uri');
+        $response = $client->request('get', '/path');
 
         self::assertEquals(array('foo' => 'value'), $response);
     }
