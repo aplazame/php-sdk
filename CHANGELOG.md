@@ -6,9 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- [Api] Add `getHttpStatusCode` to `ApiClientException` and `ApiServerException`. This method returns the response HTTP status code.
 
 ### Changed
 - [BusinessModel] Remove constructors
+- [Api] Change in `ApiClientException` and `ApiServerException` constructor signature.
 
 ### Deprecated
 

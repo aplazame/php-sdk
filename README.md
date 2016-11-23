@@ -181,6 +181,7 @@ try {
 } catch (Aplazame\Api\ApiServerException $apiServerException) {
     // Our server has crashed. We promise to fix it ASAP.
 
+    echo 'HTTP Status code', $apiServerException->getHttpStatusCode(), PHP_EOL;
     echo 'Error type', $apiServerException->getType(), PHP_EOL;
     echo 'Error message', $apiServerException->getMessage(), PHP_EOL;
 
@@ -189,6 +190,7 @@ try {
 } catch (Aplazame\Api\ApiClientException $apiClientException) {
     // Your client has sent an invalid request. Please check your code.
 
+    echo 'HTTP Status code', $apiClientException->getHttpStatusCode(), PHP_EOL;
     echo 'Error type', $apiClientException->getType(), PHP_EOL;
     echo 'Error message', $apiClientException->getMessage(), PHP_EOL;
 

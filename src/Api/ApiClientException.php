@@ -19,17 +19,17 @@ class ApiClientException extends LogicException implements AplazameExceptionInte
     {
         $responseBody = (string) $response->getBody();
         if (empty($responseBody)) {
-            return new self($response->getReasonPhrase(), $response->getStatusCode());
+            return new self($response->getStatusCode(), $response->getReasonPhrase());
         }
 
         $decodedBody = json_decode($responseBody, true);
         if (!isset($decodedBody['error'])) {
-            return new self($response->getReasonPhrase(), $response->getStatusCode());
+            return new self($response->getStatusCode(), $response->getReasonPhrase());
         }
 
         $error = $decodedBody['error'];
 
-        return new self($error['type'], $error['message'], $error);
+        return new self($response->getStatusCode(), $error['message'], $error['type'], $error);
     }
 
     /**
@@ -43,16 +43,22 @@ class ApiClientException extends LogicException implements AplazameExceptionInte
     private $error;
 
     /**
-     * @param string $type
+     * @param string $statusCode
      * @param string $message
+     * @param string $type
      * @param array $error
      */
-    public function __construct($type, $message, array $error = array())
+    public function __construct($statusCode, $message, $type = '', array $error = array())
     {
-        parent::__construct($message);
+        parent::__construct($message, $statusCode);
 
         $this->type = $type;
         $this->error = $error;
+    }
+
+    public function getHttpStatusCode()
+    {
+        return $this->getCode();
     }
 
     /**
