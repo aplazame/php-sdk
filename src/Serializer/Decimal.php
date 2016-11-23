@@ -1,11 +1,11 @@
 <?php
 
-namespace Aplazame\BusinessModel;
+namespace Aplazame\Serializer;
 
 /**
  * Decimal Type.
  */
-class Decimal extends AbstractModel
+class Decimal implements JsonSerializable
 {
     public static function fromFloat($value)
     {
