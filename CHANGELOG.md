@@ -17,6 +17,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Security
 
+## [0.2.2] - 2017-11-22
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+- [Serializer] Fix serialization of empty objects.
+
 ## [0.2.1] - 2016-11-23
 ### Added
 
