@@ -45,6 +45,8 @@ class JsonSerializerTest extends TestCase
             'Date' => array($date, '"2000-01-02T03:04:05+0100"'),
             '[Date]' => array(array($date), '["2000-01-02T03:04:05+0100"]'),
             '{Date}' => array((object) array('a' => $date), '{"a":"2000-01-02T03:04:05+0100"}'),
+            '{}' => array((object) new \stdClass(), '{}'),
+            '[]' => array(array(), '[]'),
         );
     }
 }

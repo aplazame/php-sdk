@@ -24,10 +24,10 @@ class JsonSerializer
         }
 
         if (is_object($value)) {
-            $value = (array) $value;
-        }
-
-        if (is_array($value)) {
+            foreach (get_object_vars($value) as $nestedKey => $nestedValue) {
+                $value->{$nestedKey} = self::serializeValue($nestedValue);
+            }
+        } elseif (is_array($value)) {
             foreach ($value as &$nestedValue) {
                 $nestedValue = self::serializeValue($nestedValue);
             }
