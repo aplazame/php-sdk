@@ -27,7 +27,6 @@ This SDK provides a tree of objects for guide you about to craft the checkout mo
  * Merchant model
  */
 $merchant = new stdClass();
-$merchant->confirmation_url = "/confirm"; // url that the JS client sent to confirming the order.
 $merchant->cancel_url = "/cancel";        // url that the customer is sent to if there is an error in the checkout.
 $merchant->success_url = "/success";      // url that the customer is sent to after confirming their order.
 $merchant->checkout_url = "/checkout";    // url that the customer is sent to if the customer chooses to back to the e-commerce, by default is /.
