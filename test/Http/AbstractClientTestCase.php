@@ -68,11 +68,11 @@ abstract class AbstractClientTestCase extends TestCase
 
         return array(
             // Description => [request]
-            'delete' => array(new Request('delete', 'http://httpbin.org/delete', $headers)),
-            'get' => array(new Request('get', 'http://httpbin.org/get', $headers)),
-            'patch' => array(new Request('patch', 'http://httpbin.org/patch', $headers, $testBody)),
-            'post' => array(new Request('post', 'http://httpbin.org/post', $headers, $testBody)),
-            'put' => array(new Request('put', 'http://httpbin.org/put', $headers, $testBody)),
+            'delete' => array(new Request('delete', 'https://httpbin.org/delete', $headers)),
+            'get' => array(new Request('get', 'https://httpbin.org/get', $headers)),
+            'patch' => array(new Request('patch', 'https://httpbin.org/patch', $headers, $testBody)),
+            'post' => array(new Request('post', 'https://httpbin.org/post', $headers, $testBody)),
+            'put' => array(new Request('put', 'https://httpbin.org/put', $headers, $testBody)),
         );
     }
 
