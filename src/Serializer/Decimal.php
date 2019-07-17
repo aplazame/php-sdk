@@ -5,7 +5,7 @@ namespace Aplazame\Serializer;
 /**
  * Decimal Type.
  */
-class Decimal implements JsonSerializable
+class Decimal implements \JsonSerializable
 {
     public static function fromFloat($value)
     {

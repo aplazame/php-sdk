@@ -15,7 +15,7 @@ class JsonSerializerTest extends TestCase
      */
     public function testSerializeValue($value, $serialized)
     {
-        self::assertEquals($serialized, json_encode(JsonSerializer::serializeValue($value)));
+        self::assertEquals($serialized, json_encode($value));
     }
 
     public function valuesProvider()

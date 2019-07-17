@@ -34,7 +34,7 @@ $aplazameApiClient = new Aplazame\Api\Client($apiBaseUri, $environment, $private
 /**
  * Create checkout payload as described in https://aplazame.com/en/docs/api/checkout-parameters/
  *
- * @return array
+ * @return object
  */
 function createCheckoutPayload() {
     /*
@@ -160,7 +160,7 @@ function createCheckoutPayload() {
     $checkout->billing = $billingAddress;
     $checkout->shipping = $shippingInfo;
 
-    return Aplazame\Serializer\JsonSerializer::serializeValue($checkout);
+    return $checkout;
 }
 
 /**
