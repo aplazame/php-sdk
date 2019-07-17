@@ -7,7 +7,7 @@ use DateTime;
 /**
  * DateTime Type.
  */
-class Date implements JsonSerializable
+class Date implements \JsonSerializable
 {
     /**
      * @param DateTime $value
