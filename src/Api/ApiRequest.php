@@ -9,8 +9,6 @@ class ApiRequest extends Request
 {
     const SDK_VERSION = '0.2.2';
     const FORMAT_JSON = 'json';
-    const FORMAT_XML = 'xml';
-    const FORMAT_YAML = 'yaml';
 
     /**
      * @param string $accessToken
