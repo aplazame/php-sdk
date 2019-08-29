@@ -5,7 +5,7 @@ namespace Aplazame\Serializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers Aplazame\Serializer\Decimal
+ * @covers \Aplazame\Serializer\Decimal
  */
 class DecimalTest extends TestCase
 {

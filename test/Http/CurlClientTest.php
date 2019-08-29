@@ -3,7 +3,7 @@
 namespace Aplazame\Http;
 
 /**
- * @covers Aplazame\Http\CurlClient
+ * @covers \Aplazame\Http\CurlClient
  *
  * @requires extension curl
  */

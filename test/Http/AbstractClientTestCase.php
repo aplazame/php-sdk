@@ -10,7 +10,7 @@ abstract class AbstractClientTestCase extends TestCase
     {
         $client = $this->createClient();
 
-        self::assertInstanceOf('Aplazame\\Http\\ClientInterface', $client);
+        self::assertInstanceOf(ClientInterface::class, $client);
     }
 
     /**
@@ -22,7 +22,7 @@ abstract class AbstractClientTestCase extends TestCase
 
         $response = $client->send($request);
 
-        self::assertInstanceOf('Aplazame\\Http\\ResponseInterface', $response);
+        self::assertInstanceOf(ResponseInterface::class, $response);
 
         $responseBody = json_decode($response->getBody(), true);
 
@@ -44,7 +44,7 @@ abstract class AbstractClientTestCase extends TestCase
 
         $response = $client->send($request);
 
-        self::assertInstanceOf('Aplazame\\Http\\ResponseInterface', $response);
+        self::assertInstanceOf(ResponseInterface::class, $response);
 
         self::assertEquals($statusCode, $response->getStatusCode());
     }
@@ -56,7 +56,7 @@ abstract class AbstractClientTestCase extends TestCase
     {
         $client = $this->createClient();
 
-        $this->setExpectedException($exceptionClass);
+        $this->expectException($exceptionClass);
 
         $client->send($request);
     }

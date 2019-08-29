@@ -5,9 +5,6 @@ namespace Aplazame\Serializer;
 use DateTime;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers Aplazame\Serializer\Decimal
- */
 class JsonSerializerTest extends TestCase
 {
     /**

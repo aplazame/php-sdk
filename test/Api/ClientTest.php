@@ -7,7 +7,7 @@ use Aplazame\Http\Response;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers Aplazame\Api\Client
+ * @covers \Aplazame\Api\Client
  */
 class ClientTest extends TestCase
 {

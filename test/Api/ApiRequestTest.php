@@ -5,7 +5,7 @@ namespace Aplazame\Api;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers Aplazame\Api\ApiRequest
+ * @covers \Aplazame\Api\ApiRequest
  */
 class ApiRequestTest extends TestCase
 {

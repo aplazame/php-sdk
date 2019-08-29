@@ -5,7 +5,7 @@ namespace Aplazame\Serializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers Aplazame\Serializer\Date
+ * @covers \Aplazame\Serializer\Date
  */
 class DateTest extends TestCase
 {
