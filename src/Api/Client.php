@@ -93,7 +93,7 @@ class Client
      * Performs a POST request.
      *
      * @param string $path The path of the request.
-     * @param array $data The data of the request.
+     * @param array|object $data The data of the request.
      *
      * @return array The data of the response.
      *
@@ -102,7 +102,7 @@ class Client
      * @throws ApiServerException if server was not able to respond.
      * @throws ApiClientException if request is invalid.
      */
-    public function patch($path, array $data)
+    public function patch($path, $data)
     {
         return $this->request('PATCH', $path, $data);
     }
@@ -111,7 +111,7 @@ class Client
      * Performs a POST request.
      *
      * @param string $path The path of the request.
-     * @param array $data The data of the request.
+     * @param array|object $data The data of the request.
      *
      * @return array The data of the response.
      *
@@ -120,7 +120,7 @@ class Client
      * @throws ApiServerException if an I/O error occurs.
      * @throws ApiClientException if request is invalid.
      */
-    public function post($path, array $data)
+    public function post($path, $data)
     {
         return $this->request('POST', $path, $data);
     }
@@ -129,7 +129,7 @@ class Client
      * Performs a PUT request.
      *
      * @param string $path The path of the request.
-     * @param array $data The data of the request.
+     * @param array|object $data The data of the request.
      *
      * @return array The data of the response.
      *
@@ -138,7 +138,7 @@ class Client
      * @throws ApiServerException if server was not able to respond.
      * @throws ApiClientException if request is invalid.
      */
-    public function put($path, array $data)
+    public function put($path, $data)
     {
         return $this->request('PUT', $path, $data);
     }
@@ -146,7 +146,7 @@ class Client
     /**
      * @param string $method The HTTP method of the request.
      * @param string $path The path of the request.
-     * @param array|null $data The data of the request.
+     * @param array|object|null $data The data of the request.
      *
      * @return array The data of the response.
      *
