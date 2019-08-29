@@ -2,7 +2,7 @@
 
 namespace Aplazame\Http;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 abstract class AbstractClientTestCase extends TestCase
 {

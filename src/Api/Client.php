@@ -6,10 +6,6 @@ use Aplazame\Http\ClientInterface;
 use Aplazame\Http\CurlClient;
 use RuntimeException;
 
-if (!function_exists('json_last_error_msg')) {
-    include __DIR__ . '/../json_polyfill.php';
-}
-
 class Client
 {
     const ENVIRONMENT_PRODUCTION = 'production';

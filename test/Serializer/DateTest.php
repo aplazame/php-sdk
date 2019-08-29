@@ -2,7 +2,7 @@
 
 namespace Aplazame\Serializer;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Aplazame\Serializer\Date

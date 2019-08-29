@@ -2,8 +2,9 @@
 
 namespace Aplazame\Api;
 
+use Aplazame\Http\ClientInterface;
 use Aplazame\Http\Response;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Aplazame\Api\Client
@@ -12,7 +13,7 @@ class ClientTest extends TestCase
 {
     public function testSuccessRequest()
     {
-        $httpClient = $this->getMock('Aplazame\\Http\\ClientInterface');
+        $httpClient = $this->createMock(ClientInterface::class);
         $httpClient->method('send')
             ->willReturnCallback(function (ApiRequest $apiRequest) {
                 ClientTest::assertEquals('GET', $apiRequest->getMethod(), 'getMethod not match');
@@ -50,7 +51,7 @@ class ClientTest extends TestCase
             $httpClientCallable()
         );
 
-        $this->setExpectedException($exception);
+        $this->expectException($exception);
 
         $client->request('get', 'uri');
     }
@@ -65,34 +66,34 @@ class ClientTest extends TestCase
             ),
         );
 
-        $apiCommunication = function () use ($that) {
-            $httpClient = $that->getMock('Aplazame\\Http\\ClientInterface');
+        $apiCommunication = static function () use ($that) {
+            $httpClient = $that->createMock(ClientInterface::class);
             $httpClient->method('send')
                 ->willThrowException(new ApiCommunicationException())
             ;
 
             return $httpClient;
         };
-        $deserialization = function () use ($that) {
-            $httpClient = $that->getMock('Aplazame\\Http\\ClientInterface');
+        $deserialization = static function () use ($that) {
+            $httpClient = $that->createMock(ClientInterface::class);
             $httpClient->method('send')
                 ->willReturn(new Response(200, '<html>'))
             ;
 
             return $httpClient;
         };
-        $apiClient = function () use ($that, $errorModel) {
+        $apiClient = static function () use ($that, $errorModel) {
             $body = json_encode($errorModel);
 
-            $httpClient = $that->getMock('Aplazame\\Http\\ClientInterface');
+            $httpClient = $that->createMock(ClientInterface::class);
             $httpClient->method('send')
                 ->willReturn(new Response(400, $body))
             ;
 
             return $httpClient;
         };
-        $apiClientWithoutBody = function () use ($that) {
-            $httpClient = $that->getMock('Aplazame\\Http\\ClientInterface');
+        $apiClientWithoutBody = static function () use ($that) {
+            $httpClient = $that->createMock(ClientInterface::class);
             $httpClient->method('send')
                 ->willReturn(new Response(400, null))
             ;
@@ -100,18 +101,18 @@ class ClientTest extends TestCase
             return $httpClient;
         };
 
-        $serverProblem = function () use ($that, $errorModel) {
+        $serverProblem = static function () use ($that, $errorModel) {
             $body = json_encode($errorModel);
 
-            $httpClient = $that->getMock('Aplazame\\Http\\ClientInterface');
+            $httpClient = $that->createMock(ClientInterface::class);
             $httpClient->method('send')
                 ->willReturn(new Response(500, $body))
             ;
 
             return $httpClient;
         };
-        $serverProblemWithoutBody = function () use ($that) {
-            $httpClient = $that->getMock('Aplazame\\Http\\ClientInterface');
+        $serverProblemWithoutBody = static function () use ($that) {
+            $httpClient = $that->createMock(ClientInterface::class);
             $httpClient->method('send')
                 ->willReturn(new Response(500, null))
             ;
@@ -121,12 +122,12 @@ class ClientTest extends TestCase
 
         return array(
             // Description => [client callable, exception]
-            'Communication' => array($apiCommunication, 'Aplazame\\Api\\ApiCommunicationException'),
-            'Deserialization' => array($deserialization, 'Aplazame\\Api\\DeserializeException'),
-            'ApiClient' => array($apiClient, 'Aplazame\\Api\\ApiClientException'),
-            'ApiClientWithoutBody' => array($apiClientWithoutBody, 'Aplazame\\Api\\ApiClientException'),
-            'ServerProblem' => array($serverProblem, 'Aplazame\\Api\\ApiServerException'),
-            'ServerProblemWithoutBody' => array($serverProblemWithoutBody, 'Aplazame\\Api\\ApiServerException'),
+            'Communication' => array($apiCommunication, ApiCommunicationException::class),
+            'Deserialization' => array($deserialization, DeserializeException::class),
+            'ApiClient' => array($apiClient, ApiClientException::class),
+            'ApiClientWithoutBody' => array($apiClientWithoutBody, ApiClientException::class),
+            'ServerProblem' => array($serverProblem, ApiServerException::class),
+            'ServerProblemWithoutBody' => array($serverProblemWithoutBody, ApiServerException::class),
         );
     }
 }
