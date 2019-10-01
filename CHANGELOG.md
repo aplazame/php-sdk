@@ -17,6 +17,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Security
 
+## [0.3.1] - 2019-10-01
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+- [Api] Request now allow to provide "objects" as payload
+
 ## [0.3.0] - 2019-08-29
 ### Added
 - Added examples (/examples) for the server to server checkout integration

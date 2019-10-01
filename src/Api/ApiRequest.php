@@ -7,7 +7,7 @@ use DomainException;
 
 class ApiRequest extends Request
 {
-    const SDK_VERSION = '0.3.0';
+    const SDK_VERSION = '0.3.1';
     const FORMAT_JSON = 'json';
 
     /**
