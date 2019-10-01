@@ -155,7 +155,7 @@ class Client
      * @throws ApiServerException if server was not able to respond.
      * @throws ApiClientException if request is invalid.
      */
-    public function request($method, $path, array $data = null)
+    public function request($method, $path, $data = null)
     {
         $uri = $this->apiBaseUri . '/' . ltrim($path, '/');
 
