@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/) 
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
@@ -16,6 +16,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 
 ### Security
+
+## [0.3.2] - 2020-10-16
+### Added
+
+### Changed
+- [Examples] Checkout creation real examples changed for non-real ones
+
+### Deprecated
+
+### Removed
+
+### Fixed
 
 ## [0.3.1] - 2019-10-01
 ### Added
