@@ -41,7 +41,7 @@ function createCheckoutPayload() {
      * Merchant model
      */
     $merchant = new stdClass();
-    $merchant->notification_url = 'https://merchant.com/order/step3_checkout_confirm.php'; // url where you will receive Aplazame webhook events as described in https://aplazame.com/en/docs/api/confirm-api/#implement-the-confirmation-endpoint
+    $merchant->notification_url = 'https://merchant.com/order/step3_checkout_confirm.php'; // url where you will receive Aplazame webhook events as described in https://aplazame.com/integraciones/api/checkout-confirmation/
     $merchant->success_url = "/success";                                                   // url that the customer is sent to after confirming their order.
     $merchant->pending_url = "/pending";                                                   // url that the customer is sent to if the order status is pending.
     $merchant->error_url = "/error";                                                       // url that the customer is sent to if there is an error in the checkout.
