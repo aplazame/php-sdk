@@ -17,6 +17,31 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Security
 
+## [0.3.4] - 2021-06-22
+### Added
+- English API documentation links.
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## [0.3.3] - 2021-06-22
+### Added
+
+### Changed
+- URL redirects.
+
+### Deprecated
+
+### Removed
+
+### Fixed
+- Documentation links.
+
 ## [0.3.2] - 2020-10-16
 ### Added
 
