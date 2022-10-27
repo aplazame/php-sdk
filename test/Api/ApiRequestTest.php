@@ -51,9 +51,9 @@ class ApiRequestTest extends TestCase
     /**
      * @dataProvider constructorProvider
      */
-    public function testConstructor($useSandbox, $accessToken, $expectedHeaders)
+    public function testConstructor($useSandbox, $apiVersion, $accessToken, $expectedHeaders)
     {
-        $helper = new ApiRequest($useSandbox, $accessToken, 'GET', 'http://api.example.com');
+        $helper = new ApiRequest($useSandbox, $apiVersion, $accessToken, 'GET', 'http://api.example.com');
 
         self::assertEquals($expectedHeaders, $helper->getHeaders(), 'getHeaders not match');
     }
@@ -61,9 +61,10 @@ class ApiRequestTest extends TestCase
     public function constructorProvider()
     {
         return array(
-            // Description => [useSandbox, accessToken, expectedHeader]
+            // Description => [useSandbox, apiVersion, accessToken, expectedHeader]
             'foo' => array(
                 'useSandbox' => true,
+                'apiVersion' => 1,
                 'accessToken' => 'foo',
                 'expectedHeaders' => array(
                     'Accept' => array('application/vnd.aplazame.sandbox.v1+json'),

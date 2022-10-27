@@ -40,6 +40,7 @@ class ApiRequest extends Request
 
     /**
      * @param bool $useSandbox
+     * @param int $apiVersion The API version of the request.
      * @param string $accessToken The Access Token of the request (Public API key or Private API key)
      * @param string $method The HTTP method of the request.
      * @param string $uri The URI of the request.
@@ -47,13 +48,14 @@ class ApiRequest extends Request
      */
     public function __construct(
         $useSandbox,
+        $apiVersion,
         $accessToken,
         $method,
         $uri,
         $data = null
     ) {
         $headers = array(
-            'Accept' => array(self::createAcceptHeader($useSandbox, 1, self::FORMAT_JSON)),
+            'Accept' => array(self::createAcceptHeader($useSandbox, $apiVersion, self::FORMAT_JSON)),
             'Authorization' => array(self::createAuthorizationHeader($accessToken)),
             'User-Agent' => array(
                 'Aplazame/' . self::SDK_VERSION,
