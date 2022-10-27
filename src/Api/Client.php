@@ -147,6 +147,7 @@ class Client
      * @param string $method The HTTP method of the request.
      * @param string $path The path of the request.
      * @param array|object|null $data The data of the request.
+     * @param int $apiVersion The API version of the request.
      *
      * @return array The data of the response.
      *
@@ -155,11 +156,11 @@ class Client
      * @throws ApiServerException if server was not able to respond.
      * @throws ApiClientException if request is invalid.
      */
-    public function request($method, $path, $data = null)
+    public function request($method, $path, $data = null, $apiVersion = 1)
     {
         $uri = $this->apiBaseUri . '/' . ltrim($path, '/');
 
-        $request = new ApiRequest($this->useSandbox, $this->accessToken, $method, $uri, $data);
+        $request = new ApiRequest($this->useSandbox, $apiVersion, $this->accessToken, $method, $uri, $data);
         try {
             $response = $this->httpClient->send($request);
         } catch (RuntimeException $e) {

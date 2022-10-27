@@ -174,7 +174,7 @@ function createCheckoutPayload() {
 function createAplazameCheckout(Aplazame\Api\Client $aplazameApiClient, $payload)
 {
     try {
-        return $aplazameApiClient->post('/checkout', $payload)['id'];
+        return $aplazameApiClient->request('POST','/checkout', $payload, 3)['id'];
     } catch (Aplazame\Api\ApiCommunicationException $apiCommunicationException) {
         // A network error has occurred while sending the request or receiving the response.
 
