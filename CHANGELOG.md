@@ -17,6 +17,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Security
 
+## [0.3.5] - 2023-10-11
+### Added
+
+### Changed
+- API version at checkout header.
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
 ## [0.3.4] - 2021-06-22
 ### Added
 - English API documentation links.
