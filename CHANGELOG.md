@@ -17,6 +17,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Security
 
+## [0.3.6] - 2023-11-28
+### Added
+- PHP 8.1 compatibility.
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
 ## [0.3.5] - 2023-10-11
 ### Added
 
