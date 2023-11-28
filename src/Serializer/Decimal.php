@@ -33,7 +33,7 @@ class Decimal implements \JsonSerializable
         return $this->value / 100;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize():mixed
     {
         return $this->value;
     }

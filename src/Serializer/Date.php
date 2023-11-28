@@ -42,7 +42,7 @@ class Date implements \JsonSerializable
         return $dateTime;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize():mixed
     {
         return $this->value;
     }
