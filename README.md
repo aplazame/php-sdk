@@ -18,7 +18,7 @@ composer require aplazame/aplazame-api-sdk
 ## Usage
 
 
-This SDK assists you to complete the steps from the integration guide https://aplazame.com/en/docs/api/
+This SDK assists you to complete the steps from the integration guide https://aplazame.dev/en/docs/api/checkout-process/
 
 Explore the examples folder for to learn how to:
  1. Create an Aplazame's checkout [examples/step1_checkout_create.php](examples/step1_checkout_create.php)
@@ -28,4 +28,4 @@ Explore the examples folder for to learn how to:
 
 ## Documentation
 
-Documentation is available at https://aplazame.com/en/docs/api/ or https://aplazame.com/integraciones/api/
+Documentation is available at https://aplazame.dev/
