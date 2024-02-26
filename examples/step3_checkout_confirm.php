@@ -2,8 +2,8 @@
 
 /*
  * This file provides an example about how to complete the step 03 of Aplazame's integration as described in:
- * - https://aplazame.com/en/docs/api/
- * - https://aplazame.com/integraciones/api/
+ * - https://aplazame.dev/en/docs/api/checkout-process/
+ * - https://aplazame.dev/docs/api/checkout-process/
  *
  * This file is split in two main sections:
  *
@@ -103,7 +103,7 @@ function setOrderPaymentStatusAsPending($order_id)
 }
 
 /*
- * This section is a more specific Aplazame flow as described in https://aplazame.com/en/docs/api/checkout-confirmation/ or https://aplazame.com/integraciones/api/checkout-confirmation/
+ * This section is a more specific Aplazame flow as described in https://aplazame.dev/en/docs/api/checkout-confirmation/ or https://aplazame.dev/docs/api/checkout-confirmation/
  *
  * Feel free to adjust to the specific requirements of your checkout process. The following snippet is provided as a quick start.
  */
