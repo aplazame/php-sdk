@@ -41,7 +41,7 @@ class Client
         $apiBaseUri,
         $environment,
         $accessToken,
-        ClientInterface $httpClient = null
+        ?ClientInterface $httpClient = null
     ) {
         $this->apiBaseUri = $apiBaseUri;
         $this->useSandbox = ($environment === self::ENVIRONMENT_SANDBOX) ? true : false;
