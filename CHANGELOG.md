@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Security
 
-## [0.3.7] - 2023-11-28
+## [0.3.7] - 2025-09-15
 ### Added
 - PHP 8.4 compatibility.
 
